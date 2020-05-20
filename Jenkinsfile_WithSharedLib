@@ -9,8 +9,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-				clean.workspace();
-				buildStep.jobCheckout('master', 'https://github.com/rahul-ghelani/MyPracticeRepo.git')
+				script {
+					clean.workspace();
+					buildStep.jobCheckout('master', 'https://github.com/rahul-ghelani/MyPracticeRepo.git')
+				}
             }
         }
         stage('Test') {
