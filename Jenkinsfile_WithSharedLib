@@ -1,3 +1,5 @@
+@Library('SharedLibrary') L1
+
 pipeline {
     agent any
 	options {
@@ -7,7 +9,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-				checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/rahul-ghelani/MyPracticeRepo.git']]])
+				clean.workspace();
+				buildStep.jobCheckout('master', 'https://github.com/rahul-ghelani/MyPracticeRepo.git')
             }
         }
         stage('Test') {
