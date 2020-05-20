@@ -11,7 +11,7 @@ pipeline {
                 echo 'Building..'
 				script {
 					clean.workspace();
-					buildStep.jobCheckout('master', 'https://github.com/rahul-ghelani/MyPracticeRepo.git')
+					buildStep.checkout('master', 'https://github.com/rahul-ghelani/MyPracticeRepo.git')
 				}
             }
         }
